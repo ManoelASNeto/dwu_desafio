@@ -1,9 +1,11 @@
-import 'package:dwu_desafio/pages/register_page.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../widgets/custom_textfield.dart';
+import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -35,32 +37,51 @@ class _LoginPageState extends State<LoginPage> {
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text.rich(
-                      TextSpan(
-                        style: TextStyle(fontSize: 40),
-                        children: [
-                          TextSpan(
-                            text: 'D',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
+                  children: [
+                    DefaultTextStyle(
+                      style: GoogleFonts.sansitaSwashed(
+                        textStyle: const TextStyle(
+                            fontSize: 80, fontWeight: FontWeight.bold),
+                      ),
+                      child: const Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'D',
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                          TextSpan(
-                            text: 'W',
-                            style: TextStyle(
+                            TextSpan(
+                              text: 'W',
+                              style: TextStyle(
                                 color: Colors.blue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          TextSpan(
-                            text: 'U',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                        ],
+                            TextSpan(
+                              text: 'U',
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 250,
+                      child: DefaultTextStyle(
+                        style:
+                            const TextStyle(fontSize: 30, fontFamily: 'Agne'),
+                        child: AnimatedTextKit(
+                          pause: const Duration(seconds: 5),
+                          repeatForever: true,
+                          animatedTexts: [
+                            TypewriterAnimatedText(
+                              'IT SOLUTIONS',
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -101,8 +122,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       onPressed: () {
                         signIn();
-                        /*Navigator.of(context).push(MaterialPageRoute(
-                            builder: (_) => const HomePage(),),);*/
                       },
                       child: const Text(
                         'Entrar',

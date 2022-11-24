@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
 
-class CustomTextFormField extends StatefulWidget {
+class CustomTextFormField extends StatelessWidget {
   final String? info;
   final TextInputType? input;
 
-  const CustomTextFormField({
+  CustomTextFormField({
     super.key,
     required this.info,
     required this.input,
   });
 
-  @override
-  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
-}
-
-class _CustomTextFormFieldState extends State<CustomTextFormField> {
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -27,9 +23,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(18),
             ),
-            label: Text(widget.info!),
+            label: Text(info!),
           ),
-          keyboardType: widget.input,
+          keyboardType: input,
         ),
       ),
     );

@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Deafio DWU',
+          'Desafio DWU',
           style: TextStyle(color: Colors.amber),
         ),
         centerTitle: true,
